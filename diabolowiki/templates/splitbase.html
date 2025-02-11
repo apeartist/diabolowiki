@@ -1,0 +1,12 @@
+{% include "base.html" %}
+{% block content %}
+
+<section aria-label="sidenav">
+    {% block sidenav %} {% endblock sidenav %}
+</section>
+
+<article aria-label="main">
+    {% block main %} {% endblock main %}
+</article>
+
+{% endblock content %}

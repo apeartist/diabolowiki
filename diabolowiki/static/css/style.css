@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    margin:0px;
+}
+
+header {
+    background-color: #B8DDF8;
+    padding-left: 10%;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+div.sidenav {
+    width: 30%;
+}
+
+div.main {
+    width: 70%;
+}
