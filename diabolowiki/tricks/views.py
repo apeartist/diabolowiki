@@ -16,3 +16,10 @@ def trick(request, trickname):
         'trick':tr
     }
     return render(request, 'tricks/trickbase.html', context)
+
+def edittrick(request, trickname):
+    tr = Trick.objects.get(name=trickname)
+    context = {
+        'trick':tr
+    }
+    return render(request, 'tricks/edittrick.html', context)

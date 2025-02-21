@@ -1,8 +1,30 @@
-{% include "base.html" %}
+{% extends "base.html" %}
+
+{% block style %}
+{% endblock style %}
+
 {% block content %}
 
-<h1>{{trick.name}}</h1>
+    <h1>{{trick.name|title}}</h1>
 
-<p>{{trick.description}}</p>
+    <ul>
+    {% for tag in trick.tags %}
+        <li>{{tag.name}}</li>
+    {% endfor %}
+    </ul>  
+
+    <p>{{trick.description}}</p>
+    
+    <div>
+        <ol>
+
+            {% for inst in trick.instructions %}
+            <li>
+                {{inst}}
+            </li>
+            {% endfor %}
+
+        </ol>
+    </div>
 
 {% endblock content %}

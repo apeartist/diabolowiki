@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h1>Editing {{trick.name|title}}</h1>
+
+    <form action="/edit/" method="post">
+        {% csrf_token %}
+        <label for="name">Name: </label>
+        <input id="name" type="text" name="name" value="{{ trick.name }}">
+        <input type="submit" value="OK">
+    </form>
+
+{% endblock %}
