@@ -11,14 +11,14 @@ def alltricks(request):
     return render(request, 'tricks/alltricks.html', context)
 
 def trick(request, trickname):
-    tr = Trick.objects.get(name=trickname)
+    tr = Trick.objects.get(slug=trickname)
     context = {
         'trick':tr
     }
     return render(request, 'tricks/trickbase.html', context)
 
 def edittrick(request, trickname):
-    tr = Trick.objects.get(name=trickname)
+    tr = Trick.objects.get(slug=trickname)
     context = {
         'trick':tr
     }

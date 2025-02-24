@@ -8,7 +8,7 @@
     <h1>{{trick.name|title}}</h1>
 
     <ul>
-    {% for tag in trick.tags %}
+    {% for tag in trick.tags.all %}
         <li>{{tag.name}}</li>
     {% endfor %}
     </ul>  

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
@@ -8,6 +9,7 @@ class Trick(models.Model):
     # name should check against lowercase, then use titleify in templates
 
     name = models.CharField(max_length=200)
+    slug = models.SlugField(default="",null=False)
     description = models.TextField(blank=True)
     difficulty = models.IntegerField(choices=[(i, i) for i in range(1, 6)], blank=True, default=1)
     #photo = models.ImageField(upload_to='photo', blank=True)
@@ -16,8 +18,15 @@ class Trick(models.Model):
 
     # clean up the field data (custom)
     def clean(self):
-        self.name = self.name.title()
+        self.name = self.name.lower()
+        if self.slug=="": 
+            self.slug = slugify(self.name)
     
+    # called when saving to database
+    def save(self, *args, **kwargs):
+        self.clean()
+        super(Trick, self).save(*args, **kwargs)
+
     # returns basic description of the trick
     def __str__(self):
         return self.name+": "+('*'*self.difficulty)+" "+self.description
