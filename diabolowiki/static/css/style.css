@@ -1,3 +1,14 @@
+:root {
+    --main-bg-color:#fff;
+    --bg-1: #c3efef;
+    --bg-2: #a2d2f4;
+    --bg-3: #649efb;
+    --bg-4: #196db1;
+    --bg-5: #0c5697;
+    --bg-accent-1: #ffc362;
+    --bg-muted-1: #c5cbcb;
+}
+
 * {
     box-sizing: border-box;
     margin:0px;
@@ -15,11 +26,12 @@ header {
     flex-direction: column;
     align-items:stretch;
     justify-content: center;
-    background-color: #499bd6;
+    background-color: var(--bg-4);
 }
 
 header h1 {
     font-size:50px;
+    color:white;
     text-align:center;
 }
 
@@ -28,7 +40,7 @@ nav {
     justify-content:center;
     gap: 10px;
     padding: 10px;
-    background-color: #266297;
+    background-color: var(--bg-5);
 }
 
 nav a {
@@ -42,24 +54,30 @@ main {
     margin:auto;
 }
 
+/* CLASSES */
+
 div.left {
     width: 30%;
     float: left;
 }
 
-div.main {
+div.right {
     width: 70%;
 }
 
 div.section {
     padding: 20px 10px;
-    margin: 40px;
 }
 
 .bg-1 {
-    background-color: #95e0f5;
+    background-color: var(--bg-1);
 }
 
 .bg-2 {
-    background-color: #ffffff;
+    background-color: var(--bg-muted-1);
+}
+
+.title {
+    font-size: 30px;
+    margin: 15px 0px;
 }

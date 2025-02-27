@@ -1,0 +1,32 @@
+.simpledescription {
+    margin: 20px;
+}
+
+.tricktag-container {
+    display:flex;
+    margin: 10px 0px;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.tricktag {
+    display: block;
+    background-color: var(--bg-2);
+    border-radius:12px;
+    padding:4px 6px;
+}
+
+.tricktag:hover {
+    filter: brightness(90%) saturate(140%);
+}
+
+.instruction-container {
+    background-color: var(--bg-1);
+    list-style-position: inside;
+    padding: 15px;
+}
+
+.instruction {
+    margin: 10px;
+}

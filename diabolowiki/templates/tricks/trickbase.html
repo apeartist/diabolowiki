@@ -1,25 +1,23 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block style %}
+<link rel="stylesheet" href="{% static 'css/tricks.css' %}">
 {% endblock style %}
 
 {% block content %}
 
-    <h1>{{trick.name|title}}</h1>
+    <h1 class="title"> <a href="{% url 'tricks:tricks-page' trick.slug%}">{{trick.name|title}}</a> </h1>
 
-    <ul>
-    {% for tag in trick.tags.all %}
-        <li>{{tag.name}}</li>
-    {% endfor %}
-    </ul>  
-
-    <p>{{trick.description}}</p>
+    <div class="simpledescription">
+        {% include "tricks/tricksimple.html" %}
+    </div>
     
     <div>
-        <ol>
+        <ol class="instruction-container">
 
             {% for inst in trick.instructions %}
-            <li>
+            <li class="instruction">
                 {{inst}}
             </li>
             {% endfor %}

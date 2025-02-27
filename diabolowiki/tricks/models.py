@@ -14,7 +14,7 @@ class Trick(models.Model):
     difficulty = models.IntegerField(choices=[(i, i) for i in range(1, 6)], blank=True, default=1)
     #photo = models.ImageField(upload_to='photo', blank=True)
     instructions = ArrayField(base_field=models.TextField(blank=True, null=True), blank=True, default=list)
-    tags = models.ManyToManyField("tricks.TrickTag", related_name="tricks_trick_related")
+    tags = models.ManyToManyField("tricks.TrickTag", related_name="tricks_trick_related", blank=True)
 
     # clean up the field data (custom)
     def clean(self):

@@ -1,0 +1,10 @@
+<div class="tricktag-container">
+    <p>TAGS:</p>
+{% for tag in trick.tags.all %}
+    <p class="tricktag">#{{tag.name}}</p>
+{% empty %}
+    <p>None</p>
+{% endfor %}
+</div>  
+
+<p>{{trick.description}}</p>
