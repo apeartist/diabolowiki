@@ -1,3 +1,11 @@
+<span>{% for i in '01234'|make_list %}
+    {% if forloop.counter0 < trick.difficulty %}
+        <i class="fa fa-star"></i>
+    {% else %}
+        <i class="fa fa-star-o"></i>
+    {% endif %}
+{% endfor %}</span> 
+
 <div class="tricktag-container">
     <p>TAGS:</p>
 {% for tag in trick.tags.all %}
@@ -6,5 +14,6 @@
     <p>None</p>
 {% endfor %}
 </div>  
+
 
 <p>{{trick.description}}</p>

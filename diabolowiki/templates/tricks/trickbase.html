@@ -7,7 +7,10 @@
 
 {% block content %}
 
-    <h1 class="title"> <a href="{% url 'tricks:tricks-page' trick.slug%}">{{trick.name|title}}</a> </h1>
+    <h1 class="title"> 
+        <a href="{% url 'tricks:tricks-page' trick.slug %}" class="tricklink">{{trick.name|title}}</a> 
+        <a href="{% url 'tricks:tricks-edit' trick.slug %}" class="iconlink"><i class="fa fa-pencil-square-o"></i></a>
+    </h1>
 
     <div class="simpledescription">
         {% include "tricks/tricksimple.html" %}

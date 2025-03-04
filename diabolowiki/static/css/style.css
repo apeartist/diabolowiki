@@ -7,6 +7,10 @@
     --bg-5: #0c5697;
     --bg-accent-1: #ffc362;
     --bg-muted-1: #c5cbcb;
+
+    --text-main: #000;
+    --text-link: #2e2eb3; 
+    --text-link-visited: #641fa0;
 }
 
 * {
@@ -66,7 +70,7 @@ div.right {
 }
 
 div.section {
-    padding: 20px 10px;
+    padding: 20px 15px;
 }
 
 .bg-1 {
@@ -80,4 +84,31 @@ div.section {
 .title {
     font-size: 30px;
     margin: 15px 0px;
+}
+
+.iconlink {
+    color:var(--text-main)
+}
+
+.iconlink:hover {
+    color:var(--text-link)
+}
+
+/* SPECIFIC ITEMS */
+
+.searchbar {
+    padding: 10px 0px;
+}
+
+.searchbar input[type=text] {
+    border-radius:0;
+    border: none;
+    border-bottom: 2px solid var(--bg-muted-1);
+    font-size: 18px;
+    padding: 3px;
+}
+
+.searchbar input[type=text]:focus {
+    background-color: var(--bg-muted-1);
+    outline:none;
 }

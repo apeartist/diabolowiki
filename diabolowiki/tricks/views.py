@@ -5,6 +5,9 @@ from .models import Trick
 
 def alltricks(request):
     tricks = Trick.objects.all()
+    if request.GET:
+        query = request.GET.get('search')
+        tricks = Trick.objects.filter(name__icontains=query)
     context = {
         'tricks':tricks
     }
