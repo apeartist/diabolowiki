@@ -23,4 +23,5 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('conventions/', views.conventions, name="conventions"),
     path('tricks/', include('tricks.urls')),
+    path('accounts/', include('accounts.urls')),
 ]

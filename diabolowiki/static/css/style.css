@@ -39,6 +39,29 @@ header h1 {
     text-align:center;
 }
 
+header .headerrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+header .headerrow img {
+    width:50px;
+    margin:10px;
+}
+
+header .headerrow .headerbutton {
+    background-color: var(--bg-5);
+    align-self: stretch; 
+    display: flex;
+}
+
+header .headerrow .headerbutton a {
+    color: var(--main-bg-color);
+    align-self:center;
+    padding: 10px;
+}
+
 nav {
     display:flex;
     justify-content:center;
