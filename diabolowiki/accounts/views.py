@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate
 # Create your views here.
 
 def login(request):
+    if request.user.is_authenticated:
+        return redirect("accounts:account")
     if request.method == "POST":
         #Login User
         username = request.POST['username']
@@ -14,15 +16,17 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             messages.success(request, "You are successfully logged in!")
-            return redirect("dashboard")
+            return redirect("accounts:account")
         else:
             messages.error(request, "Invalid Credentials! Try Again!")
-            return redirect("login")
+            return redirect("accounts:login")
     else:
         return render(request, 'accounts/login.html')
 
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect("accounts:account")
     if request.method == "POST":
         # Register User
         # Get the data from the form fields
@@ -45,7 +49,6 @@ def register(request):
                     messages.error(request, "That email is being used!")
                     return redirect('accounts:register')
                 else:
-                    # Everything looks good!
                     newUser = User.objects.create_user(username=username, password=password, email=email)
                     # save the new user to the database
                     newUser.save()
@@ -53,3 +56,15 @@ def register(request):
                     return redirect('accounts:login')
     else:
         return render(request, 'accounts/register.html')
+    
+def account(request):
+    if request.user.is_authenticated:
+        return render(request, 'accounts/account.html')
+    else:
+        messages.error(request, "You are not logged in!")
+        return redirect('accounts:login')
+
+def logout(request):
+    auth.logout(request)
+    messages.success(request, "You have successfully logged out.")
+    return redirect('accounts:login')

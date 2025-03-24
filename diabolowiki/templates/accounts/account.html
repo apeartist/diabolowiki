@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+{% endblock style %}
+
+{% block content %}
+    {% comment %} This should only show up if the user is logged in. Otherwise, views should redirect {% endcomment %}
+    <h1 class="title">{{user.username}}</h1>
+
+    <a href="{% url "accounts:logout" %}">Logout</a>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi iusto deleniti expedita fuga asperiores, optio aperiam officiis voluptatibus consequatur nemo enim numquam itaque sequi perspiciatis odio aliquam placeat hic quisquam.</p>
+    
+
+{% endblock %} 
