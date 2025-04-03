@@ -1,6 +1,9 @@
 from django.db import models
 from django.utils.text import slugify
 from django.contrib.postgres.fields import ArrayField
+# history
+from auditlog.registry import auditlog
+from auditlog.models import AuditlogHistoryField
 
 # Create your models here.
 
@@ -15,6 +18,8 @@ class Trick(models.Model):
     #photo = models.ImageField(upload_to='photo', blank=True)
     instructions = ArrayField(base_field=models.TextField(blank=True, null=True), blank=True, default=list)
     tags = models.ManyToManyField("tricks.TrickTag", related_name="tricks_trick_related", blank=True)
+
+    history = AuditlogHistoryField()
 
     # clean up the field data (custom)
     def clean(self):
@@ -52,3 +57,4 @@ class TrickTag(models.Model):
         tag = cls(name=name)
         return tag
 
+auditlog.register(Trick, m2m_fields={"tags"})
