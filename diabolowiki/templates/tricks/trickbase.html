@@ -28,16 +28,4 @@
         </ol>
     </div>
 
-    <div>
-        {% for key, value in trick.history.latest.changes_display_dict.items %}
-        <p>Edit to {{ key }} by 
-            {{ value.0|default:"None" }}
-            {{ value.1|default:"None" }}
-            {{ value }}
-        </p>
-        {% empty %}
-        <p>No history for this item has been logged yet.</p>
-        {% endfor %}
-    </div>
-
 {% endblock content %}
