@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from django.contrib.postgres.fields import ArrayField
+from simple_history.models import HistoricalRecords
 
 # Create your models here.
 
@@ -15,6 +16,7 @@ class Trick(models.Model):
     #photo = models.ImageField(upload_to='photo', blank=True)
     instructions = ArrayField(base_field=models.TextField(blank=True, null=True), blank=True, default=list)
     tags = models.ManyToManyField("tricks.TrickTag", related_name="tricks_trick_related", blank=True)
+    history = HistoricalRecords()
 
     # clean up the field data (custom)
     def clean(self):
@@ -29,7 +31,7 @@ class Trick(models.Model):
 
     # returns basic description of the trick
     def __str__(self):
-        return self.name+": "+('*'*self.difficulty)+" "+self.description
+        return self.name+": "+('★'*self.difficulty)+('☆'*(5-self.difficulty))+" "+self.description
 
     # creation method to just create a trick with the name
     @classmethod

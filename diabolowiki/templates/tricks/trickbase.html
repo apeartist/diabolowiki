@@ -28,4 +28,16 @@
         </ol>
     </div>
 
+    <div>
+        <h3>History</h2>
+        {% if history.prev_record %}
+        <p>Last edit by {{history.history_user}}</p>
+        {% for change in history_changes %}
+        <p>{{change.field}}: {{change.old}} -> {{change.new}} </p>
+        {% endfor %}
+        {% else %}
+        <p>No past history.</p>
+        {% endif %}
+    </div>
+
 {% endblock content %}

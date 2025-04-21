@@ -15,8 +15,11 @@ def alltricks(request):
 
 def trick(request, trickname):
     tr = Trick.objects.get(slug=trickname)
+    first = tr.history.first()
     context = {
-        'trick':tr
+        'trick':tr,
+        'history': first,
+        'history_changes': first.diff_against(first.prev_record).changes,
     }
     return render(request, 'tricks/trickbase.html', context)
 
