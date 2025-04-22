@@ -24,6 +24,8 @@ def trick(request, trickname):
     return render(request, 'tricks/trickbase.html', context)
 
 def edittrick(request, trickname):
+    if request.method == "POST":
+        pass # put in editing code here
     tr = Trick.objects.get(slug=trickname)
     context = {
         'trick':tr

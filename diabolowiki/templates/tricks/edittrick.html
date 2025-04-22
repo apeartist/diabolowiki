@@ -5,17 +5,36 @@
 <link rel="stylesheet" href="{% static 'css/tricks.css' %}">
 {% endblock style %}
 
+{% block script %}
+<script src="{% static 'js/edittrick.js' %}"></script>
+{% endblock script %}
+
 {% block content %}
 
     <h1 class="title">Editing {{trick.name|title}}</h1>
 
-    <form action="/edit/" method="post" class="edittrick-form">
+    <form action="" method="post" class="edittrick-form">
         {% csrf_token %}
         <label for="description">Description: </label>
         <input id="description" type="text" name="description" value="{{ trick.description }}">
         <label for="difficulty">Difficulty: </label>
         <input id="difficulty" type="number" name="difficulty" value="{{ trick.difficulty }}" min="1" max="5">
-        <input type="submit" value="OK">
+
+        <fieldset>
+            <legend>Instructions</legend>
+            <div id="instruction-container">
+                {% for struct in trick.instructions %}
+                <input type="text" name="instruction" class="instruction" value="{{ struct }}">
+                {% empty %}
+                <input type="text" name="instruction" class="instruction">
+                {% endfor %}
+            </div>
+            
+            <button type="button" onClick='instructions_addinput()'>+</button>
+            <button type="button" onClick='instructions_removeinput()'>-</button>
+        </fieldset>
+
+        <input type="submit">
     </form>
 
 

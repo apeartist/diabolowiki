@@ -54,3 +54,7 @@
     flex-direction:column;
     gap:15px; 
 }
+
+.edittrick-form input.instruction {
+    width:100%;
+}
