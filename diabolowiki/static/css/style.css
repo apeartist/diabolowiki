@@ -19,6 +19,12 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+body {
+    height:100vh; /* done for footer behavior to work*/
+    display: flex;
+    flex-direction: column;
+}
+
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -31,6 +37,7 @@ header {
     align-items:stretch;
     justify-content: center;
     background-color: var(--bg-4);
+    margin-bottom: 20px;
 }
 
 header h1 {
@@ -72,6 +79,15 @@ nav {
 
 nav a {
     color: white;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: var(--bg-4);
+    height:100%;
+    padding: 20px;
+    margin-top: 20px;
 }
 
 /* MAIN CONTENT */
