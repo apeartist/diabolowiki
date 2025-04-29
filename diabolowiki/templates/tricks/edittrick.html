@@ -13,6 +13,8 @@
 
     <h1 class="title">Editing {{trick.name|title}}</h1>
 
+    {% include "partials/_form_messages.html" %}
+    
     <form action="" method="post" class="edittrick-form">
         {% csrf_token %}
         <label for="description">Description: </label>
@@ -24,9 +26,9 @@
             <legend>Instructions</legend>
             <div id="instruction-container">
                 {% for struct in trick.instructions %}
-                <input type="text" name="instruction" class="instruction" value="{{ struct }}">
+                <input type="text" name="instruction{{ forloop.counter0 }}" class="instruction" value="{{ struct }}">
                 {% empty %}
-                <input type="text" name="instruction" class="instruction">
+                <input type="text" name="instruction0" class="instruction">
                 {% endfor %}
             </div>
             

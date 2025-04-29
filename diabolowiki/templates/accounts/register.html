@@ -9,6 +9,8 @@
 
     <h1 class="title">Register</h1>
 
+    {% include "partials/_form_messages.html" %}
+
     <form action="{% url 'accounts:register' %}" method="post" class="account-form">
         {% csrf_token %}
         <label for="username">Username</label>

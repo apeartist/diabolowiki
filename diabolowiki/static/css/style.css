@@ -95,6 +95,9 @@ footer {
 main {
     width: 90%;
     margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
 }
 
 /* CLASSES */
@@ -150,4 +153,9 @@ div.section {
 .searchbar input[type=text]:focus {
     background-color: var(--bg-muted-1);
     outline:none;
+}
+
+.form-messages {
+    padding: 10px;
+    background-color: var(--bg-1);
 }

@@ -2,8 +2,9 @@ var instructions = document.getElementById("instruction-container");
 
 function instructions_addinput() {
     var input = document.createElement("input");
+    console.log(instructions.childElementCount);
     input.setAttribute("type", "text");
-    input.setAttribute("name", "instruction");
+    input.setAttribute("name", "instruction"+instructions.childElementCount);
     input.setAttribute("class", "instruction");
 
     instructions.appendChild(input);
