@@ -9,8 +9,8 @@
     --bg-muted-1: #c5cbcb;
 
     --text-main: #000;
-    --text-link: #2e2eb3; 
-    --text-link-visited: #641fa0;
+    --text-link: #2f31b3; 
+    --text-link-visited: #6723a2;
 }
 
 * {
@@ -28,6 +28,7 @@ body {
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 /* HEADER AND NAV */
 
@@ -72,13 +73,16 @@ header .headerrow .headerbutton a {
 nav {
     display:flex;
     justify-content:center;
-    gap: 10px;
-    padding: 10px;
     background-color: var(--bg-5);
 }
 
 nav a {
     color: white;
+    padding:10px;
+}
+
+nav a:hover {
+    background-color: var(--bg-3);
 }
 
 /* FOOTER */
@@ -125,7 +129,7 @@ div.section {
 
 .title {
     font-size: 30px;
-    margin: 15px 0px;
+    /*margin: 15px 0px;*/
 }
 
 .iconlink {

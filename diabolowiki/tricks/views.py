@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from django import forms
+from django.contrib.auth.decorators import permission_required, login_required
 from .models import Trick
 
 # Create your views here.
@@ -29,6 +30,8 @@ def trick(request, trickname):
     }
     return render(request, 'tricks/trickbase.html', context)
 
+@login_required
+@permission_required("trick.can_edit")
 def edittrick(request, trickname):
     if request.method == "POST":
         counter=0
