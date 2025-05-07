@@ -2,10 +2,9 @@
 <header>
     <div class="headerrow">
         <img src="{% static 'assets/diaboloicon.svg' %}" alt="Orange Diabolo Icon">
-        <h1>diabolo!</h1>
+        <a id="headertitle" href="{% url "index" %}">diabolo!</a>
         {% if user.is_authenticated %}
         <div class="headerbutton"><a href="{% url 'accounts:account' %}">{{user.username}} <i class="fa fa-user-circle-o" aria-hidden="true"></i></a></div>
-        
         {% else %}
         <div class="headerbutton"><a href="{% url 'accounts:login' %}">Login</a></div>
         {% endif %}
