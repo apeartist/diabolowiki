@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="columns-container">
+    <div>
+        {% include "partials/_form_messages.html" %}
+
+        <form action="{% url 'contact' %}" method="post" class="contact-form">
+            {% csrf_token %}
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" required>
+
+                <label for="subject">Subject</label>
+                <input type="text" name="subject" required>
+            </div>
+            
+            <label for="message">Message</label>
+            <textarea name="message" rows="3" placeholder="Enter your message here"></textarea>
+
+            <input type="submit" value="Send Email">
+        </form>
+    </div>
+    <div>
+        <p>actual information lol</p>
+        <p>email is at like, here</p>
+    </div>
+
+</div>
+
+
+{% endblock content %}

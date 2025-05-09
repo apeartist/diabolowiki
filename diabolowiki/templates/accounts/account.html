@@ -7,6 +7,9 @@
 
 {% block content %}
     {% comment %} This should only show up if the user is logged in. Otherwise, views should redirect {% endcomment %}
+    
+    {% include "partials/_form_messages.html" %}
+    
     <h1 class="title">{{user.username}}</h1>
 
     <a href="{% url "accounts:logout" %}">Logout</a>

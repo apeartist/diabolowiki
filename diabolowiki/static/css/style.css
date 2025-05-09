@@ -108,14 +108,18 @@ main {
 
 /* CLASSES */
 
-div.left {
-    width: 30%;
-    float: left;
+div.columns-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap:20px;
 }
 
-div.right {
-    width: 70%;
+div.columns-container div:last-child {
+    margin-right: auto;
 }
+
 
 div.section {
     padding: 20px 15px;
@@ -164,4 +168,10 @@ div.section {
 .form-messages {
     padding: 10px;
     background-color: var(--bg-1);
+}
+
+.contact-form {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
 }
