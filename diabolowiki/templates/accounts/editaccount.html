@@ -12,7 +12,7 @@
 
     <h1 class="title">Editing {{user.username}} profile</h1>
 
-    <form action="{% url 'accounts:editaccount' %}" method="post" class="contact-form">
+    <form action="{% url 'accounts:editaccount' %}" method="POST" enctype="multipart/form-data" class="contact-form">
         {% csrf_token %}
         {{form}}
 

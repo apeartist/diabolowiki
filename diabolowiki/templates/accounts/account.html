@@ -12,7 +12,12 @@
     
     <div class="columns-container" style="align-items:center;">
 
-        <img width="100px" src="{% static "assets/account_icon.png" %}" alt="account icon">
+        {% if user.profile.profile_picture %}
+            <img width="100px" src="{{ user.profile.profile_picture.url }}" alt="account icon">
+        {% else %}
+            <img width="100px" src="{% static "assets/account_icon.png" %}" alt="account icon">
+        {% endif %}
+        
         <h1 class="title">{{user.username}}
             <a href="{% url 'accounts:editaccount' %}" class="iconlink"><i class="fa fa-pencil-square-o"></i></a>
         </h1>
