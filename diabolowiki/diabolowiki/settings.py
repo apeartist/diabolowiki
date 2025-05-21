@@ -136,5 +136,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Emailing
+# https://docs.djangoproject.com/en/5.1/ref/settings/#email 
 
 DEFAULT_FROM_EMAIL = "apear@localhost"
+
+
+# Media
+# https://docs.djangoproject.com/en/5.1/ref/settings/#file-uploads
+
+# Base url to serve media files
+MEDIA_URL = '/media/'
+
+# Path where media is stored'
+MEDIA_ROOT = BASE_DIR / 'media'

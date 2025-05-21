@@ -6,7 +6,8 @@
     --bg-4: #196db1;
     --bg-5: #0c5697;
     --bg-accent-1: #ffc362;
-    --bg-muted-1: #c5cbcb;
+    --bg-muted-1: #dde2e2;
+    --bg-muted-2: #c2caca;
 
     --text-main: #000;
     --text-link: #2f31b3; 
@@ -29,6 +30,15 @@ h1,h2,h3,h4,h5,h6 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+input[type=submit] {
+    background-color: var(--bg-muted-1);
+    border: 1px black solid;
+    padding: 2px 5px;
+}
+
+input[type=submit]:hover {
+    background-color: var(--bg-muted-2);
+}
 
 /* HEADER AND NAV */
 

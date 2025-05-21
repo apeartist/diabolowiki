@@ -10,11 +10,21 @@
     
     {% include "partials/_form_messages.html" %}
     
-    <h1 class="title">{{user.username}}</h1>
+    <div class="columns-container" style="align-items:center;">
 
-    <a href="{% url "accounts:logout" %}">Logout</a>
+        <img width="100px" src="{% static "assets/account_icon.png" %}" alt="account icon">
+        <h1 class="title">{{user.username}}
+            <a href="{% url 'accounts:editaccount' %}" class="iconlink"><i class="fa fa-pencil-square-o"></i></a>
+        </h1>
 
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi iusto deleniti expedita fuga asperiores, optio aperiam officiis voluptatibus consequatur nemo enim numquam itaque sequi perspiciatis odio aliquam placeat hic quisquam.</p>
+        <a href="{% url "accounts:logout" %}">Logout</a>
+
+    </div>
+    {% if user.profile.description %}
+    <p>{{user.profile.description}}</p>
+    {% else %}
+    <p>No user description given.</p>
+    {% endif %}
     
 
 {% endblock %} 

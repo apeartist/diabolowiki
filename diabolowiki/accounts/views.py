@@ -3,6 +3,9 @@ from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
+from .forms import ProfileForm
+from .models import Profile
+
 # Create your views here.
 
 def login(request):
@@ -63,6 +66,24 @@ def account(request):
     else:
         messages.error(request, "You are not logged in!")
         return redirect('accounts:login')
+
+def edit_account(request):
+    if not request.user.is_authenticated:
+        messages.error(request, "You are not logged in!")
+        return redirect('accounts:login')
+    if request.method == 'POST':
+        try:
+            form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        except: 
+            request.user.profile = Profile()
+            form = ProfileForm(request.POST, request.FILES, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Successfully updated account.")
+            return redirect('accounts:account')
+    else:
+        form = ProfileForm()
+    return render(request, 'accounts/editaccount.html', {'form': form})
 
 def logout(request):
     auth.logout(request)
