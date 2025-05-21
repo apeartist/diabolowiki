@@ -1,18 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}{{trick.name|title}}{% endblock title %}
+
 {% block style %}
 <link rel="stylesheet" href="{% static 'css/tricks.css' %}">
 {% endblock style %}
 
-{% block content %}
-
-    <h1 class="title"> 
-        <a href="{% url 'tricks:tricks-page' trick.slug %}" class="tricklink">{{trick.name|title}}</a> 
-        {% if user.is_authenticated %}
+{% block header %}
+    <a href="{% url 'tricks:tricks-page' trick.slug %}" class="tricklink">{{trick.name|title}}</a> 
+    {% if user.is_authenticated %}
         <a href="{% url 'tricks:tricks-edit' trick.slug %}" class="iconlink"><i class="fa fa-pencil-square-o"></i></a>
-        {% endif %}
-    </h1>
+    {% endif %}
+{% endblock header%}
+
+{% block content %}
 
     <div class="simpledescription">
         {% include "tricks/tricksimple.html" %}

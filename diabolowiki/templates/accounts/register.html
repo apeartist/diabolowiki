@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}Register{% endblock title %}
+
 {% block style %}
 <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
 {% endblock style %}
 
+{% block header %}Register{% endblock header %}
+
 {% block content %}
-
-    <h1 class="title">Register</h1>
-
-    {% include "partials/_form_messages.html" %}
 
     <form action="{% url 'accounts:register' %}" method="post" class="account-form">
         {% csrf_token %}

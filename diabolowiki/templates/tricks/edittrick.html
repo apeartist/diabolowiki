@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}Editing {{trick.name|title}}{% endblock title %}
+
 {% block style %}
 <link rel="stylesheet" href="{% static 'css/tricks.css' %}">
 {% endblock style %}
@@ -9,9 +11,9 @@
 <script src="{% static 'js/edittrick.js' %}"></script>
 {% endblock script %}
 
-{% block content %}
+{% block header %}Editing {{trick.name|title}}{% endblock header %}
 
-    <h1 class="title">Editing {{trick.name|title}}</h1>
+{% block content %}
 
     {% include "partials/_form_messages.html" %}
     

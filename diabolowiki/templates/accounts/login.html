@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}Login{% endblock title %}
+
 {% block style %}
 <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
 {% endblock style %}
 
+{% block header %}Login{% endblock header %}
+
 {% block content %}
-
-    <h1 class="title">Login</h1>
-
-    {% include "partials/_form_messages.html" %}
-
     <form action="{% url 'accounts:login' %}" method="post" class="account-form">
         {% csrf_token %}
         <label for="username">Username</label>

@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}Edit Account{% endblock title %}
+
 {% block style %}
 <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
 {% endblock style %}
 
+{% block header %}Editing {{user.username}} profile{% endblock header %}
+
 {% block content %}
     {% comment %} This should only show up if the user is logged in. Otherwise, views should redirect {% endcomment %}
-
-    {% include "partials/_form_messages.html" %}
-
-    <h1 class="title">Editing {{user.username}} profile</h1>
 
     <form action="{% url 'accounts:editaccount' %}" method="POST" enctype="multipart/form-data" class="contact-form">
         {% csrf_token %}

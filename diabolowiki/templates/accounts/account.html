@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}Account{% endblock title%}
+
 {% block style %}
 <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
 {% endblock style %}
 
+<!-- header is in a div -->
+
 {% block content %}
     {% comment %} This should only show up if the user is logged in. Otherwise, views should redirect {% endcomment %}
-    
-    {% include "partials/_form_messages.html" %}
     
     <div class="columns-container" style="align-items:center;">
 
