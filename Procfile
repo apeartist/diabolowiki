@@ -1,1 +1,1 @@
-web: gunicorn 'djangowiki.wsgi'
+web: gunicorn 'djangowiki.wsgi' --log-file -
