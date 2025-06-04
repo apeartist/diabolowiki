@@ -4,6 +4,6 @@
         "builder": "RAILPACK"
     },
     "deploy": {
-        "startCommand": "gunicorn diabolowiki.wsgi"
+        "startCommand": "gunicorn myproject.wsgi"
     }
 }
