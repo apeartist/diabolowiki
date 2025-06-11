@@ -51,3 +51,21 @@ def edittrick(request, trickname):
         'trick':tr
     }
     return render(request, 'tricks/edittrick.html', context)
+
+@login_required
+@permission_required("trick.can_edit")
+def newtrick(request):
+    if request.method == "POST":
+        counter=0
+        instr = request.POST["instruction"+str(counter)]
+        while instr!="":
+            print(instr)
+            counter+=1
+            try:
+                instr = request.POST["instruction"+str(counter)]
+            except:
+                break
+        if instr=="": # it stopped because there was something empty
+            messages.error(request, "Instructions cannot be empty!")
+        pass # put in editing code here
+    return render(request, 'tricks/edittrick.html')

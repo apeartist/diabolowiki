@@ -1,6 +1,9 @@
 {% extends "base.html" %}
+
+{% block header %} Diabolo Wiki Homepage {% endblock header %}
+
 {% block content %}
 
-<h1>WOW</h1>
+<a href="{% url "tricks:alltrickstricks-all" %}">All Tricks</a> here!
 
 {% endblock content %}

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Editing {{trick.name|title}}{% endblock title %}
+{% block title %}New Trick{% endblock title %}
 
 {% block style %}
 <link rel="stylesheet" href="{% static 'css/tricks.css' %}">
@@ -11,25 +11,21 @@
 <script src="{% static 'js/edittrick.js' %}"></script>
 {% endblock script %}
 
-{% block header %}Editing {{trick.name|title}}{% endblock header %}
+{% block header %}New Trick{% endblock header %}
 
 {% block content %}
     
     <form action="" method="post" class="edittrick-form">
         {% csrf_token %}
         <label for="description">Description: </label>
-        <input id="description" type="text" name="description" value="{{ trick.description }}">
+        <input id="description" type="text" name="description">
         <label for="difficulty">Difficulty: </label>
-        <input id="difficulty" type="number" name="difficulty" value="{{ trick.difficulty }}" min="1" max="5">
+        <input id="difficulty" type="number" name="difficulty" min="1" max="5">
 
         <fieldset>
             <legend>Instructions</legend>
             <div id="instruction-container">
-                {% for struct in trick.instructions %}
-                <input type="text" name="instruction{{ forloop.counter0 }}" class="instruction" value="{{ struct }}">
-                {% empty %}
                 <input type="text" name="instruction0" class="instruction">
-                {% endfor %}
             </div>
             
             <button type="button" onClick='instructions_addinput()'>+</button>

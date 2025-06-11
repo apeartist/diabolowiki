@@ -152,3 +152,14 @@ MEDIA_URL = '/media/'
 
 # Path where media is stored'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+
+# CSRF
+
+CORS_ALLOWED_ORIGINS = [
+    'https://web-production-93c6.up.railway.app',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://diabolowiki-production.up.railway.app',
+]
