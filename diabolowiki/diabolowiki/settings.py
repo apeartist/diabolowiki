@@ -149,8 +149,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Emailing
 # https://docs.djangoproject.com/en/5.1/ref/settings/#email 
 
-DEFAULT_FROM_EMAIL = "apear@localhost"
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = "diabolowiki@localhost"
+ADMINS = (('apeartist','apeartistemail@gmail.com'))
 
 # Media
 # https://docs.djangoproject.com/en/5.1/ref/settings/#file-uploads
