@@ -73,17 +73,18 @@ def newtrick(request):
         difficulty = request.POST['difficulty']
 
         counter=0
-        instr = request.POST["instruction"+str(counter)]
-        while instr!="":
-            print(instr)
+        instr = [request.POST["instruction"+str(counter)],]
+        while instr[counter]!="":
             counter+=1
             try:
-                instr = request.POST["instruction"+str(counter)]
+                instr.append(request.POST["instruction"+str(counter)])
             except:
+                counter-=1
                 break
         if instr=="": # it stopped because there was something empty
             messages.error(request, "Instructions cannot be empty!")
-        print('made new trick')
+        messages.success(request, "Successfully created trick!")
         newtrick = Trick(name=name,description=description,difficulty=difficulty,instructions=instr)
         newtrick.save()
-    return render(request, 'tricks/edittrick.html')
+        return redirect('tricks:tricks-page', trickname=newtrick.slug)
+    return render(request, 'tricks/newtrick.html')
