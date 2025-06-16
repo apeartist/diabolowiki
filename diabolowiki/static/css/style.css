@@ -30,6 +30,14 @@ h1,h2,h3,h4,h5,h6 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+a:link {
+    color: var(--text-link);
+}
+
+a:visited, a:active {
+    color: var(--text-link-visited);
+}
+
 input[type=submit] {
     background-color: var(--bg-muted-1);
     border: 1px black solid;
@@ -88,7 +96,7 @@ nav {
     background-color: var(--bg-5);
 }
 
-nav a {
+nav a:link, nav a:visited {
     color: white;
     padding:10px;
 }

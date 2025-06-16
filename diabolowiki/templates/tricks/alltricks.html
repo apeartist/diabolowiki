@@ -16,6 +16,7 @@
     <button type="submit">&#9658;</button>
 </form>
 
+<p><a href="{% url 'tricks:new-trick' %}">Make New Trick</a></p>
 
 {% for trick in tricks %}
     <div class="section {% cycle 'bg-1' 'bg-2' %}">
