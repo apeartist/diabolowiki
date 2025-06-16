@@ -13,5 +13,5 @@ def contact(request):
         email = request.POST["email"]
         subject = request.POST["subject"]
         message = request.POST["message"]
-        send_mail(subject,message,settings.DEFAULT_FROM_EMAIL,[subject],fail_silently=False)
+        send_mail(subject,message,settings.DEFAULT_FROM_EMAIL,["apeartistemail@gmail.com"],fail_silently=False)
     return render(request,"contact.html")
